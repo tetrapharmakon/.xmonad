@@ -1,0 +1,15 @@
+
+xmonad.hs:60:65: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+   |
+60 |         manageDocks <+> insertPosition End Newer <+> manageHook defaultConfig
+   |                                                                 ^^^^^^^^^^^^^
+
+xmonad.hs:61:20: warning: [-Wdeprecations]
+    In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+   |
+61 |     , layoutHook = spacing 5 $ Tall 1 (5 / 100) (1 / 2)
+   |                    ^^^^^^^

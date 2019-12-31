@@ -4,6 +4,9 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.InsertPosition
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 
 -- solarized
@@ -13,34 +16,25 @@ foreground = "#3c3836"
 
 color1 = "#cc241d"
 
-color9 = "#9d0006"
-
+-- color9 = "#9d0006"
 color2 = "#98971a"
 
 base03 = "#002b36"
 
 base02 = "#073642"
 
-base01 = "#586e75"
-
-base00 = "#657b83"
-
+-- base01 = "#586e75"
+-- base00 = "#657b83"
 base0 = "#839496"
 
-base1 = "#93a1a1"
-
-base2 = "#eee8d5"
-
-base3 = "#fdf6e3"
-
-yellow = "#b58900"
-
-orange = "#cb4b16"
-
+-- base1 = "#93a1a1"
+-- base2 = "#eee8d5"
+-- base3 = "#fdf6e3"
+-- yellow = "#b58900"
+-- orange = "#cb4b16"
 red = "#dc322f"
 
-magenta = "#d33682"
-
+-- magenta = "#d33682"
 violet = "#6c71c4"
 
 blue = "#268bd2"
@@ -50,7 +44,7 @@ cyan = "#2aa198"
 green = "#859900"
 
 -- Default font
-font = "xft:DejaVu Sans Mono:size=14:antialias=true"
+font = "xft:DejaVu Sans Mono:size=10:antialias=true"
 
 -- Main
 main = xmonad =<< statusBar myXmobar myPP myToggleStrutsKey myConfig
@@ -62,6 +56,12 @@ myConfig =
     , handleEventHook = fullscreenEventHook
     , terminal = "xfce4-terminal -e 'bash -i -c fish'"
     , startupHook = spawn "xloadimage -onroot -fullscreen ~/.xmonad/bg.jpg"
+    , manageHook =
+        manageDocks <+> insertPosition End Newer <+> manageHook defaultConfig
+    , layoutHook = spacing 5 $ Tall 1 (5 / 100) (1 / 2)
+        -- avoidStruts $
+        -- spacingRaw True (Border 5 5 5 5) True (Border 10 10 10 10) True $
+        -- layoutHook def
     } `additionalKeys`
   [((mod4Mask, xK_p), spawn myDmenu)]
 
@@ -87,7 +87,7 @@ myXmobar =
   foreground ++
   "' " ++
   "-F '" ++
-  background ++
+  cyan ++
   "' " ++
   "-c '[ Run StdinReader" ++
   ", Run Com \"date\" [\"+\\\"%F # %H.%M\\\"\"] \"date\" 600" ++
