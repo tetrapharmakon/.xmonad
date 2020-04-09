@@ -1,5 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-
 import Data.Map as M
 
 -- Import modules
@@ -66,7 +64,7 @@ myConfig =
     } `additionalKeysP`
   [ ("M-p", spawn myDmenu)
   , ("M-m", spawn "mousepad")
-  , ("M-t", spawn "xfce4-terminal")
+  , ("M-t", spawn "gnome-terminal")
   , ("M-c", spawn "code")
   , ( "M-s"
     , spawnSelected
