@@ -71,7 +71,7 @@ myConfig =
   , ( "M-s"
     , spawnSelected
         def --aultGSConfig
-        ["urxvt-tabbed", "code", "atom", "firefox", "opera"])
+        ["urxvt-tabbed", "code", "/usr/bin/atom", "firefox", "opera", "/usr/bin/zoom", "./Telegram/Telegram &"])
   ]
 
 myWorkspaces =
